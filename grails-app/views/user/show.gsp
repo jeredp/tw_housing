@@ -37,7 +37,7 @@
 					<span id="addresses-label" class="property-label"><g:message code="user.addresses.label" default="Addresses" /></span>
 					
 						<g:each in="${userInstance.addresses}" var="a">
-						<span class="property-value" aria-labelledby="addresses-label"><g:link controller="address" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="addresses-label"><g:link controller="address" action="show" id="${a.id}">${a?.city}, ${a?.state}</g:link></span>
 						</g:each>
 					
 				</li>

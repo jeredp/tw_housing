@@ -72,7 +72,7 @@
 				<li class="fieldcontain">
 					<span id="user-label" class="property-label"><g:message code="address.user.label" default="User" /></span>
 					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${addressInstance?.user?.id}">${addressInstance?.user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${addressInstance?.user?.id}">${addressInstance?.user?.name}</g:link></span>
 					
 				</li>
 				</g:if>
