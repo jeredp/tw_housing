@@ -12,7 +12,12 @@ class AddressControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["city"] = 'Jered'
+        params["state"] = 'ME'
+        params["address"] = '8 Dill st.'
+        params["user"] = new User()
+        params["startDate"] = new Date(1234)
+        params["finishDate"] = new Date(4321)
     }
 
     void "Test the index action returns the correct model"() {
@@ -27,10 +32,11 @@ class AddressControllerSpec extends Specification {
 
     void "Test the create action returns the correct model"() {
         when:"The create action is executed"
+            populateValidParams(params)
             controller.create()
 
         then:"The model is correctly created"
-            model.addressInstance!= null
+            model.addressInstance != null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -41,7 +47,7 @@ class AddressControllerSpec extends Specification {
             controller.save(address)
 
         then:"The create view is rendered again with the correct model"
-            model.addressInstance!= null
+            model.addressInstance != null
             view == 'create'
 
         when:"The save action is executed with a valid instance"

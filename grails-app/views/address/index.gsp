@@ -52,7 +52,7 @@
 					
 						<td><g:formatDate date="${addressInstance.startDate}" /></td>
 					
-						<td>${fieldValue(bean: addressInstance, field: "user")}</td>
+						<td>${fieldValue(bean: addressInstance, field: "user.name")}</td>
 					
 					</tr>
 				</g:each>

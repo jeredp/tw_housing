@@ -12,7 +12,7 @@ class UserControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["name"] = 'Jered'
     }
 
     void "Test the index action returns the correct model"() {
@@ -30,7 +30,7 @@ class UserControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.userInstance!= null
+            model.userInstance != null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -41,7 +41,7 @@ class UserControllerSpec extends Specification {
             controller.save(user)
 
         then:"The create view is rendered again with the correct model"
-            model.userInstance!= null
+            model.userInstance != null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
