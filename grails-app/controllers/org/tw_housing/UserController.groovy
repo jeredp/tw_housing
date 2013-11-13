@@ -1,12 +1,11 @@
 package org.tw_housing
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class UserController {
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -20,6 +19,7 @@ class UserController {
     }
 
     def create() {
+        def user = springSecurityService.getPrincipal()
         respond new User(params)
     }
 
@@ -35,12 +35,14 @@ class UserController {
             return
         }
 
-        userInstance.save flush:true
+        if(userInstance.save(flush:true)){
+            SecUserSecRole.create userInstance, SecRole.findByAuthority(['ROLE_USER'])
+        }
 
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'userInstance.label', default: 'User'), userInstance.id])
-                redirect userInstance
+                redirect index(1)
             }
             '*' { respond userInstance, [status: CREATED] }
         }
