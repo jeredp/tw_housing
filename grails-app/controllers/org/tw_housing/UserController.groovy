@@ -42,7 +42,7 @@ class UserController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'userInstance.label', default: 'User'), userInstance.id])
-                redirect index(1)
+                redirect controller:"login", action:"index"
             }
             '*' { respond userInstance, [status: CREATED] }
         }

@@ -47,6 +47,6 @@
 		<g:message code="address.user.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="user" name="user.id" from="${org.tw_housing.User.list()}" optionKey="id" optionValue="name" required="" value="${addressInstance?.user?.id}" class="many-to-one"/>
+	<g:textField name="user" required="" value="${sec.loggedInUserInfo(field: 'username')}" class="many-to-one"/>
 </div>
 
