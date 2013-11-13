@@ -1,6 +1,6 @@
 package org.tw_housing
 
-class User {
+class User extends SecUser{
 
     String name
     static hasMany = [addresses: Address]
