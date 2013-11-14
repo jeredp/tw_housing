@@ -133,4 +133,3 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/logout/index': ['permitAll'],
         '/**': ['ROLE_USER']
 ]
-grails.plugin.springsecurity

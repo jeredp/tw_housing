@@ -19,12 +19,14 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
-            <div><sec:ifNotLoggedIn>
-                <a href="${g.createLink(controller: "user", action: "create", absolute: "true")}">Register</a>
-            </sec:ifNotLoggedIn>
-            <sec:ifAllGranted roles="ROLE_USER">
-                <a href="${g.createLink(controller: "logout", action: "index", absolute: "true")}">Log Out</a>
-            </sec:ifAllGranted>
+            <div class="loginSelector right">
+                <sec:ifNotLoggedIn>
+                    <a href="${g.createLink(controller: "login", action: "index", absolute: "true")}">Login</a>or,
+                    <a href="${g.createLink(controller: "user", action: "create", absolute: "true")}">Register</a>
+                </sec:ifNotLoggedIn>
+                <sec:ifAllGranted roles="ROLE_USER">
+                    <a href="${g.createLink(controller: "logout", action: "index", absolute: "true")}">Log Out</a>
+                </sec:ifAllGranted>
             </div>
         </div>
 		<g:layoutBody/>

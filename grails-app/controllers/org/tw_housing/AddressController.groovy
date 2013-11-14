@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class AddressController {
 
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -20,22 +21,20 @@ class AddressController {
     }
 
     def create() {
+        params.put("user", springSecurityService.currentUser as SecUser)
         respond new Address(params)
     }
 
     @Transactional
     def save(Address addressInstance) {
+        addressInstance.setUser(springSecurityService.currentUser as SecUser)
+
         if (addressInstance == null) {
             notFound()
             return
         }
 
-        if (addressInstance.hasErrors()) {
-            respond addressInstance.errors, view:'create'
-            return
-        }
-
-        addressInstance.save flush:true
+        addressInstance.save flush:true, failOnError: true
 
         request.withFormat {
             form {

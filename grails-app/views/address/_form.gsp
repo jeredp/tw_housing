@@ -41,12 +41,5 @@
 	</label>
 	<g:datePicker name="startDate" precision="day"  value="${addressInstance?.startDate}"  />
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: addressInstance, field: 'user', 'error')} required">
-	<label for="user">
-		<g:message code="address.user.label" default="User" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="user" required="" value="${sec.loggedInUserInfo(field: 'username')}" class="many-to-one"/>
 </div>
 
