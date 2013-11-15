@@ -2,7 +2,7 @@ package org.tw_housing
 
 class Address {
 
-    static belongsTo = [user: SecUser]
+    static belongsTo = [user: User]
     String state
     String city
     String address

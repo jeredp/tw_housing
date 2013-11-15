@@ -21,13 +21,13 @@ class AddressController {
     }
 
     def create() {
-        params.put("user", springSecurityService.currentUser as SecUser)
+        params.put("user", User.get(springSecurityService.principal.id))
         respond new Address(params)
     }
 
     @Transactional
     def save(Address addressInstance) {
-        addressInstance.setUser(springSecurityService.currentUser as SecUser)
+        addressInstance.setUser(User.get(springSecurityService.principal.id))
 
         if (addressInstance == null) {
             notFound()
