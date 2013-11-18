@@ -1,9 +1,9 @@
 package org.tw_housing
 
-
-
-import grails.test.mixin.*
-import spock.lang.*
+import grails.plugin.springsecurity.SpringSecurityService
+import grails.test.mixin.Mock
+import grails.test.mixin.TestFor
+import spock.lang.Specification
 
 @TestFor(AddressController)
 @Mock(Address)
@@ -23,6 +23,8 @@ class AddressControllerSpec extends Specification {
     void "Test the index action returns the correct model"() {
 
         when:"The index action is executed"
+            def authService = mockFor(SpringSecurityService)
+            controller.springSecurityService = authService
             controller.index()
 
         then:"The model is correct"

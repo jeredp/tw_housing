@@ -26,20 +26,21 @@
 	<g:textField name="address" required="" value="${addressInstance?.address}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: addressInstance, field: 'finishDate', 'error')} required">
-	<label for="finishDate">
-		<g:message code="address.finishDate.label" default="Finish Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="finishDate" precision="day"  value="${addressInstance?.finishDate}"  />
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: addressInstance, field: 'startDate', 'error')} required">
-	<label for="startDate">
+    <label for="startDate">
 		<g:message code="address.startDate.label" default="Start Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="startDate" precision="day"  value="${addressInstance?.startDate}"  />
+    <g:datePicker name="startDate" precision="day"  value="${addressInstance?.startDate}"  />
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: addressInstance, field: 'finishDate', 'error')} required">
+    <label for="finishDate">
+        <g:message code="address.finishDate.label" default="Finish Date" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:datePicker name="finishDate" precision="day"  value="${addressInstance?.finishDate}"  />
 </div>
 </div>
 

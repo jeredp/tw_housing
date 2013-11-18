@@ -120,9 +120,9 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.tw_housing.Se
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.tw_housing.SecUserSecRole'
 grails.plugin.springsecurity.authority.className = 'org.tw_housing.SecRole'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        '/': ['permitAll'],
-        '/index': ['permitAll'],
-        '/index.gsp': ['permitAll'],
+        '/': ['ROLE_USER'],
+        '/index': ['ROLE_USER'],
+        '/index.gsp': ['ROLE_USER'],
         '/**/js/**': ['permitAll'],
         '/**/css/**': ['permitAll'],
         '/**/images/**': ['permitAll'],
